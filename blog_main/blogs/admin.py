@@ -8,7 +8,7 @@ class CategoryAdmin(admin.ModelAdmin):
 class BlogsAdmin(admin.ModelAdmin):
     list_display=['id', 'title', 'category', 'author', 'is_featured', 'created_at', 'updated_at', 'status']
     prepopulated_fields={'slug':('title',)}
-    search_fields=['id', 'title', 'category__category_name', 'author', 'status']
+    search_fields=('id', 'title', 'category__category_name', 'author__username', 'status')
     list_editable=['is_featured',]
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Blogs, BlogsAdmin)
