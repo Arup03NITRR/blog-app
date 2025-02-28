@@ -9,6 +9,9 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural='Categories'
+    
+    def __str__(self):
+        return self.category_name
 
 STATUS_CHOICE=(
     ('draft', 'Drafted'),
@@ -27,3 +30,6 @@ class Blogs(models.Model):
     is_featured=models.BooleanField(default=False)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural='Blogs'
